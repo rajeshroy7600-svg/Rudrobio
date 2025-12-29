@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudro Roy - Personal Bio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a192f;
+            color: #ccd6f6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(10, 25, 47, 0.8) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(41, 171, 226, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.1) 0%, transparent 30%);
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            background: rgba(17, 34, 64, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .sidebar {
+            background: rgba(23, 42, 76, 0.9);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-right: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #64ffda;
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 0 25px rgba(100, 255, 218, 0.3);
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #64ffda;
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #8892b0;
+            margin-bottom: 20px;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #a8b2d1;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .location i {
+            color: #64ffda;
+        }
+        
+        .contact-info {
+            width: 100%;
+            background: rgba(10, 25, 47, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-info h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: left;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #a8b2d1;
+        }
+        
+        .contact-item i {
+            color: #64ffda;
+            width: 20px;
+        }
+        
+        .main-content {
+            padding: 40px 30px;
+        }
+        
+        section {
+            margin-bottom: 35px;
+        }
+        
+        h2 {
+            color: #64ffda;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(100, 255, 218, 0.2);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 60px;
+            height: 2px;
+            background-color: #64ffda;
+        }
+        
+        p {
+            line-height: 1.6;
+            color: #a8b2d1;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            color: #64ffda;
+            font-weight: 600;
+        }
+        
+        .education-details {
+            background: rgba(10, 25, 47, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #64ffda;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-item h3 {
+            color: #ccd6f6;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .education-item p {
+            color: #8892b0;
+            font-size: 15px;
+        }
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .interest-item {
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            color: #8892b0;
+            font-size: 14px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: #a8b2d1;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #64ffda;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            }
+        }
+        
+        .coochbehar-map {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 150px;
+            background: linear-gradient(to right, rgba(10, 25, 47, 0.9), rgba(23, 42, 76, 0.9));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .coochbehar-map i {
+            font-size: 50px;
+            color: rgba(100, 255, 218, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar with profile information -->
+        <div class="sidebar">
+            <div class="profile-img">
+                <!-- Placeholder for profile image -->
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="40" r="20" fill="#64ffda" opacity="0.7"/>
+                    <circle cx="50" cy="90" r="30" fill="#64ffda" opacity="0.5"/>
+                </svg>
+            </div>
+            
+            <h1 class="name">Rudro Roy</h1>
+            <div class="title">12th Grade Student</div>
+            
+            <div class="location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Coochbehar, West Bengal, India</span>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contact Info</h3>
+                <div class="contact-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>12th Grade Student</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-school"></i>
+                    <span>Science Stream</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-language"></i>
+                    <span>Bengali, English, Hindi</span>
+                </div>
+            </div>
+            
+            <div class="coochbehar-map">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+        </div>
+        
+        <!-- Main content area -->
+        <div class="main-content">
+            <section class="about">
+                <h2>About Me</h2>
+                <p>Hello! I'm <span class="highlight">Rudro Roy</span>, a passionate and dedicated 12th-grade student from the beautiful region of Coochbehar in West Bengal, India. I'm currently pursuing my higher secondary education with a focus on the Science stream.</p>
+                <p>As a student, I believe in the power of education to transform lives and communities. I'm constantly exploring new areas of knowledge and developing skills that will help me build a meaningful career in the future.</p>
+            </section>
+            
+            <section class="education">
+                <h2>Education</h2>
+                <div class="education-details">
+                    <div class="education-item">
+                        <h3>Higher Secondary Education (12th Grade)</h3>
+                        <p>Science Stream (Physics, Chemistry, Mathematics)</p>
+                        <p>Expected Graduation: 2024</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Secondary Education (10th Grade)</h3>
+                        <p>Completed with distinction</p>
+                        <p>Year of Completion: 2022</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="location-info">
+                <h2>My Hometown</h2>
+                <p>I hail from <span class="highlight">Coochbehar, West Bengal</span> - a region known for its rich cultural heritage, historical significance, and natural beauty. Coochbehar is famous for the Coochbehar Palace, Madan Mohan Temple, and its vibrant festivals.</p>
+                <p>Growing up in this culturally rich environment has shaped my perspective and instilled in me values of community, tradition, and continuous learning.</p>
+            </section>
+            
+            <section class="interests">
+                <h2>Interests & Hobbies</h2>
+                <div class="interests">
+                    <div class="interest-item">Science & Technology</div>
+                    <div class="interest-item">Mathematics</div>
+                    <div class="interest-item">Programming</div>
+                    <div class="interest-item">Reading</div>
+                    <div class="interest-item">Sports</div>
+                    <div class="interest-item">Music</div>
+                    <div class="interest-item">Travel</div>
+                    <div class="interest-item">Photography</div>
+                </div>
+            </section>
+            
+            <footer>
+                <p>Connect with me</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+                <p style="margin-top: 15px;">&copy; 2023 Rudro Roy. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+        // Simple animation for interest items
+        document.addEventListener('DOMContentLoaded', function() {
+            const interestItems = document.querySelectorAll('.interest-item');
+            
+            interestItems.forEach((item, index) => {
+                // Add slight delay for each item
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.classList.add('animate');
+            });
+            
+            // Add interactivity to social icons
+            const socialIcons = document.querySelectorAll('.social-icons a');
+            socialIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.1)';
+                });
+                
+                icon.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Add a subtle background animation
+            const body = document.querySelector('body');
+            let angle = 0;
+            
+            function updateBackground() {
+                angle += 0.2;
+                const x = 50 + 20 * Math.cos(angle * Math.PI / 180);
+                const y = 50 + 20 * Math.sin(angle * Math.PI / 180);
+                
+                body.style.backgroundImage = 
+                    `radial-gradient(circle at ${x}% ${y}%, rgba(10, 25, 47, 0.8) 0%, transparent 20%),
+                    radial-gradient(circle at ${100-x}% ${100-y}%, rgba(41, 171, 226, 0.15) 0%, transparent 20%),
+                    radial-gradient(circle at 50% 50%, rgba(100, 255, 218, 0.1) 0%, transparent 30%)`;
+                
+                requestAnimationFrame(updateBackground);
+            }
+            
+            updateBackground();
+        });
+    </script>
+</body>
+</html>
